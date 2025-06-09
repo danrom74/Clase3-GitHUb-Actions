@@ -9,8 +9,11 @@ jobs:
     steps:
       - name: Imprime variable
         run: echo "${{ secrets.TOKEN_SECRET }}"
-        #run: echo "Valor de la variable: ${{ secrets.TOKEN_SECRET }}"
+        
 
-     # - name: Run first job
-     #   run: echo "This is the first job"
+      - name: Setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          #cache: 'npm'
   
