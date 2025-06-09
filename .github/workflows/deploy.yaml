@@ -45,7 +45,7 @@ jobs:
         run: npm run build
 
       - name: Cargar Artefacto
-        if: $${{ matrix.os == 'ubuntu-latest' && matrix.node == 18 }}
+        if: ${{ matrix.os == 'ubuntu-latest' && matrix.node == 18 }}
         # Solo se sube el artefacto si es Ubuntu y Node 18
         uses: actions/upload-pages-artifact@v3
         with:
