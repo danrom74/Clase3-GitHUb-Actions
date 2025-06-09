@@ -39,6 +39,12 @@ jobs:
       - name: Construir pagina
         run: npm run build
 
+      - name: Cargar Artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public/
+
+
   deploy:
     if: ${{ always() }}
     runs-on: ubuntu-latest
