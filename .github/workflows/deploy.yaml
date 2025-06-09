@@ -64,3 +64,18 @@ jobs:
         id: Despliega-Paginas
         uses: actions/deploy-pages@v4
        
+  notificar:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: ${{ always() }}
+    
+    steps:
+      - name: notificar al slack
+        uses: 8398a7/actions-slack@v3
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
+     
+        with:
+          status: ${{ job.status }}
+          fields: repository,commit,author,job,took
+            
