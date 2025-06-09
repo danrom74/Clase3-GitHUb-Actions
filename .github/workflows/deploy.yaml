@@ -19,8 +19,8 @@ jobs:
 #      - name: Testear Redis
 #        run: redis-cli -h localhost -p 6379 ping
              
-      - name: Imprime variable
-        run: echo "${{ secrets.TOKEN_SECRET }}"
+#      - name: Imprime variable
+#        run: echo "${{ secrets.TOKEN_SECRET }}"
         
       - name: Checkout code
         uses: actions/checkout@v4
@@ -46,7 +46,6 @@ jobs:
 
 
   deploy:
-    if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: Build
   
@@ -61,7 +60,7 @@ jobs:
 
 
     steps:
-      - name: Desplegar
+      - name: deploy
         id: Despliega-Paginas
         uses: actions/deploy-pages@v4
        
