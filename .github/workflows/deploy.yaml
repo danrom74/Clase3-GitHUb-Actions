@@ -56,7 +56,7 @@ jobs:
 
     environment:
       name: github-pages
-      url: $ {{ steps.Despliega-Paginas.outputs.page_url }}
+      url: ${{ steps.Despliega-Paginas.outputs.page_url }}
 
 
     steps:
