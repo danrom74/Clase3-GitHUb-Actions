@@ -36,7 +36,9 @@ jobs:
       - name: Ejecutar pruebas
         run: npm test  
   
-  
+      - name: Construir pagina
+        run: npm run build
+
   deploy:
     if: ${{ always() }}
     runs-on: ubuntu-latest
