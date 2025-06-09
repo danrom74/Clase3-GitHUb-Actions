@@ -49,7 +49,19 @@ jobs:
     if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: Build
-    
+  
+    permissions:
+      pages: write
+      id-token: write
+      
+
+    environment:
+      name: github-pages
+      url: $ {{ steps.Despliega-Paginas.outputs.page_url }}
+
+
     steps:
       - name: Desplegar
-        run: echo "Deploy........."
+        id: Despliega-Paginas
+        uses: actions/deploy-pages@v4
+       
